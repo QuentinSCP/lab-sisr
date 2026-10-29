@@ -657,6 +657,8 @@ Les tests se jouent depuis le labo, sans poste d'attaque dédié. Les tests T15 
 
 Quatre phases mènent le labo à la conformité complète avant l'assemblage du dossier en S14 (26 mars 2027).
 
+> Une reconstruction complète, avec un calendrier révisé, est proposée dans le [plan de reconstruction](plan-reconstruction.md). Si elle est validée en S4, elle remplace cette feuille de route.
+
 ![feuille de route, 4 phases, de novembre 2026 à mars 2027](img/03-feuille-de-route.svg)
 
 *Figure 4 : feuille de route, 4 phases, de novembre 2026 à mars 2027.*

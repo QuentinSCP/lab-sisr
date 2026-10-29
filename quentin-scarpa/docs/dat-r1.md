@@ -183,6 +183,8 @@ Quinze tests, un par résultat attendu de N3 ou par exigence : [plan de tests R1
 
 La feuille de route du DAT (§17) plaçait keepalived en phase 4 (S12). Comme R1 comprend une extension, le lot 3 est avancé dans la période de R1.
 
+Si le [plan de reconstruction](plan-reconstruction.md) est validé en S4, son calendrier remplace celui-ci : la chaîne R1, keepalived compris, est reconstruite en S5 et S6.
+
 ## 10. Points ouverts
 
 - [ ] Code de l'application de référence à recevoir ; sessions PHP ou non (§4.6).

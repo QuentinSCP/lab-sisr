@@ -31,6 +31,7 @@ Pièces remises au formateur, sur le modèle du dossier `nom-prenom/` du parcour
 | Table de correspondance GSB | [`docs/correspondance-gsb.md`](docs/correspondance-gsb.md) | Version 1.0 |
 | DAT du laboratoire, complet | [`docs/DAT.md`](docs/DAT.md) | Version 1.4 |
 | DAT de la réalisation 1 | [`docs/dat-r1.md`](docs/dat-r1.md) | Version 0.1, à valider en S4 |
+| Plan de reconstruction du labo | [`docs/plan-reconstruction.md`](docs/plan-reconstruction.md) | Version 1.0, à valider en S4 |
 | Procédures | [`docs/procedures/`](docs/procedures/) | 01 à 08 |
 | Plan de tests R1 | [`docs/tests/plan-de-tests-r1.md`](docs/tests/plan-de-tests-r1.md) | Prêt, à exécuter de S5 à S7 |
 | Rapport de tests et rapport d'incident R1 | `docs/tests/` | À faire (S7) |
@@ -129,6 +130,7 @@ quentin-scarpa/
 │   ├── dat-environnement.md         Synthèse de l'existant
 │   ├── correspondance-gsb.md        Zones et serveurs de GSB, équivalents dans le labo
 │   ├── dat-r1.md                    DAT de la réalisation 1 (mission N3)
+│   ├── plan-reconstruction.md       Reconstruction complète, phases et calendrier
 │   ├── img/                         Schémas utilisés par les DAT
 │   ├── procedures/                  Une procédure par technologie, plus les bascules
 │   │   ├── 00-modele.md
