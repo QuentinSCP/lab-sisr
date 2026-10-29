@@ -1,0 +1,28 @@
+# Secrets : ne jamais versionner
+*.key
+*.pem
+*.pfx
+id_ed25519
+id_ed25519.pub.bak
+id_rsa
+*.env
+.vault_pass*
+wp-config.php
+galera-check.cnf
+*.cnf.local
+
+# Export de configuration pfSense : contient des empreintes de mots de passe.
+# À garder hors de ce dépôt, ou chiffré (option "Encrypt this configuration file").
+config-*.xml
+
+# Sauvegardes et exports de données (données personnelles possibles)
+*.sql
+*.sql.gz
+*.vma
+*.vma.zst
+*.tar.zst
+
+# Divers
+.DS_Store
+Thumbs.db
+*.swp
