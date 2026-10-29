@@ -190,6 +190,7 @@ Captures à déposer dans `captures/wordpress/` :
 - `02-repartition-web1-web2.png` : l'en-tête `X-Served-By` en alternance.
 - `03-panne-web1.png` : Apache arrêté sur WEB1, site toujours en ligne.
 - `04-journal-apache.png` : extrait commenté de `access.log`.
+- Traces texte : `captures/wordpress/AAAA-MM-JJ-web1-etat.txt` et `-web2-etat.txt` (versions, codes HTTP, empreinte de `wp-config.php`), relevées par `scripts/collecte-preuves.sh` ; mesures de panne dans `captures/bascules/` (`scripts/mesure-bascule.sh`, procédure 08).
 
 ## 8. Points à vérifier
 

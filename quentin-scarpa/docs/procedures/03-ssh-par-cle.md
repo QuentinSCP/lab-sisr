@@ -168,6 +168,7 @@ Captures à déposer dans `captures/ssh/` :
 - `01-connexion-par-cle.png` : connexion sans mot de passe.
 - `02-mot-de-passe-refuse.png` : `Permission denied (publickey)`.
 - `03-journal-ssh.png` : connexions acceptées et refusées dans `journalctl -u ssh`.
+- Trace texte : section « ssh » de chaque fichier `captures/<technologie>/AAAA-MM-JJ-<hôte>-etat.txt` (réglages effectifs, connexions des 7 derniers jours), relevée par `scripts/collecte-preuves.sh`.
 
 ## 8. Suite prévue
 

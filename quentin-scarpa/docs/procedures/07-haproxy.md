@@ -176,6 +176,7 @@ Captures à déposer dans `captures/haproxy/` :
 - `03-statistiques-panne-web1.png` : WEB1 en rouge, site en ligne.
 - `04-statistiques-panne-db1.png` : DB1 en rouge, DB2 actif.
 - `05-journal-haproxy.png` : serveur retiré puis réintégré.
+- Traces texte : `captures/haproxy/AAAA-MM-JJ-haproxy-etat.txt` (validation, état des serveurs, retraits et retours) et `configs/haproxy/haproxy.cfg` (mot de passe des statistiques masqué), relevés par `scripts/collecte-preuves.sh`.
 
 ## 8. Suite prévue
 

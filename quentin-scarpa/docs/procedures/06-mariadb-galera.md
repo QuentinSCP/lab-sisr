@@ -381,6 +381,7 @@ Captures à déposer dans `captures/galera/` :
 - `03-replication.png` : base créée sur DB1 et visible sur DB2.
 - `04-panne-db1-haproxy.png` : page de statistiques HAProxy avec DB1 en rouge et DB2 actif.
 - `05-demarrage-a-froid.png` : amorçage d'un nœud et retour des deux autres.
+- Traces texte : `captures/galera/AAAA-MM-JJ-db1-etat.txt` (et `db2`, `db3`) : indicateurs `wsrep`, réponse du port 9200, `grastate.dat`, journal ; configuration réelle dans `configs/galera/` et `scripts/galera/`. Relevées par `scripts/collecte-preuves.sh`.
 
 ## 9. Points à vérifier
 

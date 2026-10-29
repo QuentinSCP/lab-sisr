@@ -4,17 +4,38 @@ Dépôt du laboratoire de **Quentin Scarpa** : BTS SIO option SISR, épreuve E6 
 
 Le laboratoire publie un site WordPress qui reste en ligne quand un serveur tombe (réalisation **R1**). Le projet **Sentinelle** (réalisation **R2**) en fait le mini centre de sécurité d'une PME : supervision, journaux centralisés, détection d'intrusion, bastion et fichiers.
 
-> État du dépôt : 8 octobre 2026 · DAT version 1.4
+> État du dépôt : 29 octobre 2026 · DAT du laboratoire v1.4 · DAT R1 v0.1
 
 ## Sommaire
 
-1. [Architecture en bref](#architecture-en-bref)
-2. [Technologies et procédures](#technologies-et-procédures)
-3. [Rejouer le laboratoire](#rejouer-le-laboratoire)
-4. [Démarrer et arrêter le laboratoire](#démarrer-et-arrêter-le-laboratoire)
-5. [Organisation du dépôt](#organisation-du-dépôt)
-6. [Conventions](#conventions)
-7. [Points à vérifier](#points-à-vérifier)
+1. [Livrables E6](#livrables-e6)
+2. [Architecture en bref](#architecture-en-bref)
+3. [Technologies et procédures](#technologies-et-procédures)
+4. [Relever les preuves](#relever-les-preuves)
+5. [Rejouer le laboratoire](#rejouer-le-laboratoire)
+6. [Démarrer et arrêter le laboratoire](#démarrer-et-arrêter-le-laboratoire)
+7. [Organisation du dépôt](#organisation-du-dépôt)
+8. [Conventions](#conventions)
+9. [Points à vérifier](#points-à-vérifier)
+
+## Livrables E6
+
+Pièces remises au formateur, sur le modèle du dossier `nom-prenom/` du parcours U6 (gabarits et consignes, laissés tels quels).
+
+| Pièce | Fichier | État |
+| --- | --- | --- |
+| Fiche descriptive R1 (mission N3) | [`01-fiche-descriptive-R1.md`](01-fiche-descriptive-R1.md) | Version 1 remise en S3, retour le 12 novembre |
+| Fiche descriptive R2 | À créer (S13) | À faire |
+| Tableau de l'environnement (annexe II.E) | [`03-environnement-annexe-II-E.md`](03-environnement-annexe-II-E.md) | Audit S3 : 7 lignes sur 22 démontrables |
+| DAT d'environnement | [`docs/dat-environnement.md`](docs/dat-environnement.md) | Version 1.0 |
+| Table de correspondance GSB | [`docs/correspondance-gsb.md`](docs/correspondance-gsb.md) | Version 1.0 |
+| DAT du laboratoire, complet | [`docs/DAT.md`](docs/DAT.md) | Version 1.4 |
+| DAT de la réalisation 1 | [`docs/dat-r1.md`](docs/dat-r1.md) | Version 0.1, à valider en S4 |
+| Procédures | [`docs/procedures/`](docs/procedures/) | 01 à 08 |
+| Plan de tests R1 | [`docs/tests/plan-de-tests-r1.md`](docs/tests/plan-de-tests-r1.md) | Prêt, à exécuter de S5 à S7 |
+| Rapport de tests et rapport d'incident R1 | `docs/tests/` | À faire (S7) |
+| Rendus de séance | [`seances/`](seances/) | S02 fait ; S01 (auto-diagnostic, règles du jeu) à rédiger soi-même |
+| Preuves | `captures/`, `configs/`, `scripts/` | Scripts prêts, première collecte à lancer |
 
 ## Architecture en bref
 
@@ -46,8 +67,25 @@ Une procédure par technologie en place, dans [`docs/procedures/`](docs/procedur
 | 05 | Apache, PHP, WordPress | Le site public | WEB1 (609), WEB2 (615) | En place | [05-apache-php-wordpress.md](docs/procedures/05-apache-php-wordpress.md) |
 | 06 | MariaDB et Galera | Base du site, réplication synchrone, contrôle de santé | DB1 (612), DB2 (613), DB3 (614) | En place | [06-mariadb-galera.md](docs/procedures/06-mariadb-galera.md) |
 | 07 | HAProxy | Répartition web, bascule SQL | HAProxy (616) | En place | [07-haproxy.md](docs/procedures/07-haproxy.md) |
+| 08 | Bascules et retour à la normale | Pannes, maintenance sans coupure, mesure des délais (R1) | HAProxy, WEB1, WEB2, DB1 à DB3 | Délais à mesurer | [08-bascules-et-retour-a-la-normale.md](docs/procedures/08-bascules-et-retour-a-la-normale.md) |
 
 **Briques Sentinelle à venir** : GLPI, Prometheus / Grafana / Alertmanager, rsyslog puis Wazuh, Suricata, Guacamole (bastion), serveur de fichiers FS01, Nextcloud, Ansible, sauvegardes dédiées, HTTPS avec autorité interne, seconde instance HAProxy avec keepalived, assistant IA (bonus). Chacune recevra sa procédure au moment de sa mise en place, à partir du modèle [`00-modele.md`](docs/procedures/00-modele.md).
+
+## Relever les preuves
+
+Les procédures décrivent ce qui est attendu ; les preuves du dossier viennent des machines. Deux scripts, lancés depuis le poste d'administration, les relèvent sans rien modifier sur le labo.
+
+```bash
+scripts/collecte-preuves.sh
+```
+
+Il relève l'état de HAProxy, WEB1, WEB2 et DB1 à DB3 (versions, services, indicateurs, journaux) dans `captures/<technologie>/`, et leurs configurations réelles dans `configs/` et `scripts/`, mots de passe masqués.
+
+```bash
+scripts/mesure-bascule.sh http://10.2.0.198:8081/ 60 panne-web1
+```
+
+Il interroge le site toutes les 0,5 s pendant qu'une panne est provoquée dans un autre terminal, puis donne la plus longue interruption ([procédure 08](docs/procedures/08-bascules-et-retour-a-la-normale.md#47-mesurer-une-interruption)). Relire `git diff` avant chaque commit : les sorties contiennent les adresses du labo.
 
 ## Rejouer le laboratoire
 
@@ -82,27 +120,36 @@ Les VM sont éteintes entre les séances : chaque reprise est un démarrage à f
 
 ```text
 quentin-scarpa/
-├── README.md                 Ce fichier
-├── .gitignore                Exclut secrets, clés et exports sensibles
+├── README.md                        Ce fichier
+├── 01-fiche-descriptive-R1.md       Fiche descriptive de la réalisation 1
+├── 03-environnement-annexe-II-E.md  Tableau de l'environnement (audit)
+├── .gitignore                       Exclut secrets, clés et exports sensibles
 ├── docs/
-│   ├── DAT.md                Dossier d'architecture technique (v1.4)
-│   ├── img/                  Schémas utilisés par le DAT
-│   └── procedures/           Une procédure par technologie
-│       ├── 00-modele.md
-│       ├── 01-proxmox-vm-reseau.md
-│       ├── 02-pfsense.md
-│       ├── 03-ssh-par-cle.md
-│       ├── 04-active-directory-dns-dhcp.md
-│       ├── 05-apache-php-wordpress.md
-│       ├── 06-mariadb-galera.md
-│       └── 07-haproxy.md
-├── scripts/                  Scripts versionnés (PowerShell de l'annuaire, contrôle Galera...)
-├── configs/                  Configurations sans secret (haproxy.cfg, 60-galera.cnf, unités systemd...)
-├── ansible/                  Playbooks (phases Sentinelle)
-└── captures/                 Preuves pour le dossier E6, un sous-dossier par technologie
+│   ├── DAT.md                       Dossier d'architecture technique du laboratoire (v1.4)
+│   ├── dat-environnement.md         Synthèse de l'existant
+│   ├── correspondance-gsb.md        Zones et serveurs de GSB, équivalents dans le labo
+│   ├── dat-r1.md                    DAT de la réalisation 1 (mission N3)
+│   ├── img/                         Schémas utilisés par les DAT
+│   ├── procedures/                  Une procédure par technologie, plus les bascules
+│   │   ├── 00-modele.md
+│   │   ├── 01-proxmox-vm-reseau.md
+│   │   ├── 02-pfsense.md
+│   │   ├── 03-ssh-par-cle.md
+│   │   ├── 04-active-directory-dns-dhcp.md
+│   │   ├── 05-apache-php-wordpress.md
+│   │   ├── 06-mariadb-galera.md
+│   │   ├── 07-haproxy.md
+│   │   └── 08-bascules-et-retour-a-la-normale.md
+│   └── tests/
+│       └── plan-de-tests-r1.md      Plan de tests, tableau des pannes, test de charge
+├── seances/                         Rendus de séance
+├── scripts/                         collecte-preuves.sh, mesure-bascule.sh ; scripts relevés sur les machines
+├── configs/                         Configurations relevées sur les machines, sans secret
+├── ansible/                         Playbooks (phases Sentinelle)
+└── captures/                        Preuves pour le dossier E6, un sous-dossier par technologie
 ```
 
-Les dossiers `scripts/`, `configs/`, `ansible/` et `captures/` sont vides pour l'instant : les procédures contiennent les fichiers de référence à y déposer après comparaison avec la machine réelle.
+`configs/`, `captures/` et `ansible/` sont encore vides : `scripts/collecte-preuves.sh` remplit les deux premiers à partir des machines ([Relever les preuves](#relever-les-preuves)).
 
 ## Conventions
 
