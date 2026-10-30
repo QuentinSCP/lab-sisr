@@ -1,3 +1,40 @@
+---
+sous_titre: "Routage, filtrage et publication du site"
+version: "1.1"
+date: "30/10/2026"
+statut: "À valider"
+diffusion: "Formateur, dossier E6"
+machines: "pfSense (VM 611)"
+composants:
+  - nom: "pfSense"
+    detail: "VM 611, WAN 10.2.0.198"
+    icone: shield
+  - nom: "VLAN 164 à 167"
+    detail: "passerelles en .254"
+    icone: network
+  - nom: "Alias"
+    detail: "adresses et ports nommés"
+    icone: file-text
+  - nom: "Règles"
+    detail: "matrice des flux F1 à F28"
+    icone: lock
+  - nom: "NAT"
+    detail: "site 8081, SSH par port"
+    icone: globe
+  - nom: "Journal du pare-feu"
+    detail: "flux refusés"
+    icone: activity
+historique:
+  - version: "1.0"
+    date: "08/10/2026"
+    auteur: "Q. Scarpa"
+    modifications: "Création, à partir du DAT v1.4"
+  - version: "1.1"
+    date: "30/10/2026"
+    auteur: "Q. Scarpa"
+    modifications: "Rangement dans les annexes, version PDF"
+---
+
 # 02 · pfSense : routage, filtrage et publication du site
 
 | | |

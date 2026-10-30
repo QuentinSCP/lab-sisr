@@ -25,8 +25,8 @@ La page de garde (nom, établissement, visa du formateur, attestation signée) n
 | Séance | Je dépose | Où | État |
 |---|---|---|---|
 | **S1** | Auto-diagnostic · règles du jeu | `seances/S01-auto-diagnostic.md`, `seances/S01-regles-du-jeu.md` | ⬜ à rédiger moi-même |
-| **S2** | Matrice missions × compétences · note de choix | `seances/S02-matrice-missions.md`, `seances/S02-note-de-choix.md` | 🟠 |
-| **S3** | **Audit de mon laboratoire** · table de correspondance GSB · **DAT d'environnement** | `03-environnement-annexe-II-E.md`, `seances/S03-audit-laboratoire.md`, `annexes/dat/` | 🟠 |
+| **S2** | Matrice missions × compétences · note de choix | `seances/S02.md` (§3 et §4) | 🟠 |
+| **S3** | **Audit de mon laboratoire** · table de correspondance GSB · **DAT d'environnement** | `mon-laboratoire.md`, `03-environnement-annexe-II-E.md`, `seances/S03.md`, `annexes/dat/` | 🟠 |
 | **S4** | DAT de la réalisation 1 · première version de la fiche R1 | `annexes/dat/dat-r1.md`, `01-fiche-descriptive-R1.md` | 🟠 déposés dès S3 |
 | **S5 – S6** | Procédures et captures de la réalisation 1 | `annexes/procedures/` (et leurs PDF), `annexes/captures/` | 🟠 procédures 01 à 08 ; captures à produire |
 | **S7** | Rapport de tests et rapport d'incident de la réalisation 1 | `annexes/tests/` | ⬜ plan de tests prêt |

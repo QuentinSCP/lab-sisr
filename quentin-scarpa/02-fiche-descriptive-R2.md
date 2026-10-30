@@ -11,14 +11,14 @@
 | Rubrique | Contenu |
 |---|---|
 | **N° de réalisation** | 2 |
-| **Mission GSB** | **N4 — Supervision et qualité de service** (pressentie dans la [note de choix de S2](seances/S02-note-de-choix.md), à valider en S10) ; lots à choisir |
+| **Mission GSB** | **N4 — Supervision et qualité de service** (pressentie dans la note de choix de [S02](seances/S02.md), §4, à valider en S10) ; lots à choisir |
 | **Intitulé de la réalisation** | *(une phrase : « Mise en place de … pour … »)* |
 | **Organisation cliente** | GSB — *le besoin en 3 lignes* |
 | **Période de réalisation** | du … au … |
 | **Lieu de réalisation** | |
 | **Modalité** | Seul(e) ☐ · En équipe ☐ — *ma part personnelle :* |
 | **Compétences travaillées** | Concevoir ☐ · Installer, tester, déployer ☐ · Exploiter, dépanner, superviser ☐ |
-| **Ce que cette réalisation ajoute à la réalisation 1** | Sous-compétences 14 (automatiser), 15 (indicateurs et journaux) et 17 (maintenir et améliorer), que R1 ne couvre qu'en partie ([matrice de S2](seances/S02-matrice-missions.md)) |
+| **Ce que cette réalisation ajoute à la réalisation 1** | Sous-compétences 14 (automatiser), 15 (indicateurs et journaux) et 17 (maintenir et améliorer), que R1 ne couvre qu'en partie (matrice de [S02](seances/S02.md), §3) |
 
 > ⚠️ Ne coche une famille que si une **preuve** la soutient (voir §5).
 

@@ -1,3 +1,44 @@
+---
+sous_titre: "Administration à distance sans mot de passe"
+version: "1.2"
+date: "30/10/2026"
+statut: "À valider"
+diffusion: "Formateur, dossier E6"
+machines: "Toutes les VM"
+composants:
+  - nom: "OpenSSH"
+    detail: "serveur sur chaque VM"
+    icone: terminal
+  - nom: "Clé ed25519"
+    detail: "poste d'administration"
+    icone: key-round
+  - nom: "~/.ssh/config"
+    detail: "un alias par machine"
+    icone: file-text
+  - nom: "sshd_config.d"
+    detail: "mot de passe refusé"
+    icone: lock
+  - nom: "Redirections NAT"
+    detail: "ports 2222 à 2253"
+    icone: network
+  - nom: "journalctl"
+    detail: "connexions tracées"
+    icone: activity
+historique:
+  - version: "1.0"
+    date: "08/10/2026"
+    auteur: "Q. Scarpa"
+    modifications: "Création, à partir du DAT v1.4"
+  - version: "1.1"
+    date: "29/10/2026"
+    auteur: "Q. Scarpa"
+    modifications: "Ajout des traces relevées par script"
+  - version: "1.2"
+    date: "30/10/2026"
+    auteur: "Q. Scarpa"
+    modifications: "Rangement dans les annexes, version PDF"
+---
+
 # 03 · SSH par clé : administration à distance
 
 | | |

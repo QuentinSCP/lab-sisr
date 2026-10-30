@@ -9,7 +9,7 @@ annexes/
 ├── dat/          DAT du laboratoire, DAT d'environnement, table de correspondance GSB, DAT R1, plan de reconstruction
 ├── schemas/      Schémas d'architecture, en image et en source quand elle existe (.mmd)
 ├── procedures/   Procédures 00 à 08 et leur version PDF (procedures/pdf/)
-├── scripts/      Scripts et configurations sans secret : collecte des preuves, mesure des bascules, génération des PDF ;
+├── scripts/      Scripts et configurations sans secret : collecte des preuves, mesure des bascules, génération des PDF et sa charte (pdf/) ;
 │                 fichiers relevés sur les machines, rangés par technologie
 ├── captures/     Traces relevées sur le labo, un sous-dossier par technologie (créé par les scripts)
 └── tests/        Plan de tests R1 ; rapports de tests et d'incident à venir
@@ -85,10 +85,13 @@ Il interroge le site toutes les 0,5 s pendant qu'une panne est provoquée dans u
 python annexes/scripts/generer-pdf.py
 ```
 
-Chaque procédure `procedures/NN-*.md` (sauf le modèle 00) devient `procedures/pdf/NN-*.pdf`, avec la mise en page de [`scripts/pdf.css`](scripts/pdf.css) : A4, tableaux, blocs de commandes, numéros de page. Pour une seule procédure : `python annexes/scripts/generer-pdf.py annexes/procedures/07-haproxy.md`.
+Chaque procédure `procedures/NN-*.md` (sauf le modèle 00) devient `procedures/pdf/NN-*.pdf`, dans la charte de ma documentation GLPI : page de garde, sommaire, sections numérotées et colorées, encadrés, blocs de commandes titrés, figures légendées, numéros de page. Pour une seule procédure : `python annexes/scripts/generer-pdf.py annexes/procedures/07-haproxy.md`.
 
-- **Prérequis** : Python 3, [pandoc](https://pandoc.org/installing.html) 3 (sous Windows : `winget install JohnMacFarlane.Pandoc`), et Edge, Chrome ou Chromium. Le navigateur est trouvé tout seul ; sinon, donner son chemin dans la variable `NAVIGATEUR`.
-- **Schémas** : les diagrammes sont insérés en image (SVG ou PNG). Un schéma Mermaid se dessine d'abord en SVG ; sa source `.mmd` reste dans `schemas/`.
+- **Prérequis** : Python 3 et pypdf (`pip install pypdf`), [pandoc](https://pandoc.org/installing.html) 3 (sous Windows : `winget install JohnMacFarlane.Pandoc`), et Edge, Chrome ou Chromium en version 131 ou plus (pour le pied de page). Le navigateur est trouvé tout seul ; sinon, donner son chemin dans la variable `NAVIGATEUR`.
+- **Page de garde** : elle lit l'en-tête YAML de la procédure (sous-titre, version, date, statut, diffusion, machines, outils et composants, historique). Les champs et la liste des icônes sont dans le [modèle 00](procedures/00-modele.md). À chaque nouvelle version : changer `version` et `date`, ajouter une ligne à `historique`.
+- **Charte** : dossier [`scripts/pdf/`](scripts/pdf/) : `modele.html` (page de garde), `style.css` (mise en page), `filtre.lua` (sections, encadrés, blocs de code), `fond.html` (décor des pages), `polices/` (Questrial et DejaVu Sans Mono, licences libres jointes).
+- **Encadrés** : une citation (`> ...`) devient un encadré « Remarque » ; si elle commence par « Attention » ou « Important », un encadré orange.
+- **Schémas** : les diagrammes sont insérés en image (SVG ou PNG), seuls dans leur paragraphe : ils deviennent des figures numérotées, légendées par leur texte alternatif. Un schéma Mermaid se dessine d'abord en SVG ; sa source `.mmd` reste dans `schemas/`.
 - **Régénérer après chaque modification** d'une procédure, puis committer le Markdown et le PDF ensemble.
 
 ## Rejouer le laboratoire

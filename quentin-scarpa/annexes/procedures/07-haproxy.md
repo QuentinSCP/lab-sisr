@@ -1,3 +1,44 @@
+---
+sous_titre: "Répartition web et bascule SQL"
+version: "1.2"
+date: "30/10/2026"
+statut: "À valider"
+diffusion: "Formateur, dossier E6"
+machines: "HAProxy (VM 616)"
+composants:
+  - nom: "HAProxy"
+    detail: "VM 616, 10.100.164.2"
+    icone: split
+  - nom: "Apache"
+    detail: "WEB1 et WEB2"
+    icone: server
+  - nom: "Galera"
+    detail: "DB1, secours DB2 et DB3"
+    icone: database
+  - nom: "Contrôle 9200"
+    detail: "Synced et Primary"
+    icone: activity
+  - nom: "Statistiques"
+    detail: "port 8404, zone ADM"
+    icone: file-text
+  - nom: "socat"
+    detail: "socket d'administration"
+    icone: terminal
+historique:
+  - version: "1.0"
+    date: "08/10/2026"
+    auteur: "Q. Scarpa"
+    modifications: "Création, à partir du DAT v1.4"
+  - version: "1.1"
+    date: "29/10/2026"
+    auteur: "Q. Scarpa"
+    modifications: "Ajout des traces relevées par script"
+  - version: "1.2"
+    date: "30/10/2026"
+    auteur: "Q. Scarpa"
+    modifications: "Rangement dans les annexes, version PDF"
+---
+
 # 07 · HAProxy : répartition web et bascule SQL
 
 | | |

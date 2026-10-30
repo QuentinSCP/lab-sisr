@@ -1,3 +1,21 @@
+---
+sous_titre: "Une phrase : ce que la procédure permet de faire"
+version: "1.0"
+date: "JJ/MM/AAAA"
+statut: "À valider"
+diffusion: "Formateur, dossier E6"
+machines: "<nom court> (<ID Proxmox>)"
+composants:  # icônes : server, network, shield, database, terminal, key-round, globe, folder, archive, refresh-cw, activity, layers, lock, users, clock, file-text, split
+  - nom: "<outil>"
+    detail: "<rôle en quelques mots>"
+    icone: server
+historique:
+  - version: "1.0"
+    date: "JJ/MM/AAAA"
+    auteur: "Q. Scarpa"
+    modifications: "Création"
+---
+
 # NN · Nom de la technologie
 
 > Modèle de procédure. Copier ce fichier, le renommer `NN-technologie.md`, remplacer les champs entre chevrons, puis supprimer cette ligne.

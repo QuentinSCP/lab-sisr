@@ -1,3 +1,40 @@
+---
+sous_titre: "Domaine qscarpa.lan, noms et adresses du laboratoire"
+version: "1.1"
+date: "30/10/2026"
+statut: "À valider"
+diffusion: "Formateur, dossier E6"
+machines: "ADPSQS (VM 606)"
+composants:
+  - nom: "Windows Server 2022"
+    detail: "ADPSQS, VM 606"
+    icone: server
+  - nom: "AD DS"
+    detail: "domaine qscarpa.lan"
+    icone: users
+  - nom: "DNS"
+    detail: "zones directe et inverses"
+    icone: globe
+  - nom: "DHCP"
+    detail: "étendue USERS"
+    icone: network
+  - nom: "PowerShell"
+    detail: "installation scriptée"
+    icone: terminal
+  - nom: "GPO"
+    detail: "mots de passe, verrouillage"
+    icone: shield
+historique:
+  - version: "1.0"
+    date: "08/10/2026"
+    auteur: "Q. Scarpa"
+    modifications: "Création, à partir du DAT v1.4"
+  - version: "1.1"
+    date: "30/10/2026"
+    auteur: "Q. Scarpa"
+    modifications: "Rangement dans les annexes, version PDF"
+---
+
 # 04 · Active Directory, DNS et DHCP
 
 | | |

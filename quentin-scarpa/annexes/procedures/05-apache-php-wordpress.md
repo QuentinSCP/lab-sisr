@@ -1,3 +1,44 @@
+---
+sous_titre: "Deux serveurs web identiques derrière HAProxy"
+version: "1.2"
+date: "30/10/2026"
+statut: "À valider"
+diffusion: "Formateur, dossier E6"
+machines: "WEB1 (VM 609), WEB2 (VM 615)"
+composants:
+  - nom: "Apache 2"
+    detail: "WEB1 et WEB2"
+    icone: server
+  - nom: "PHP"
+    detail: "modules de WordPress"
+    icone: layers
+  - nom: "WordPress"
+    detail: "site public"
+    icone: globe
+  - nom: "wp-config.php"
+    detail: "base jointe par HAProxy"
+    icone: lock
+  - nom: "X-Served-By"
+    detail: "serveur qui a répondu"
+    icone: activity
+  - nom: "remoteip"
+    detail: "adresse réelle du client"
+    icone: network
+historique:
+  - version: "1.0"
+    date: "08/10/2026"
+    auteur: "Q. Scarpa"
+    modifications: "Création, à partir du DAT v1.4"
+  - version: "1.1"
+    date: "29/10/2026"
+    auteur: "Q. Scarpa"
+    modifications: "Ajout des traces relevées par script"
+  - version: "1.2"
+    date: "30/10/2026"
+    auteur: "Q. Scarpa"
+    modifications: "Rangement dans les annexes, version PDF"
+---
+
 # 05 · Apache, PHP et WordPress
 
 | | |

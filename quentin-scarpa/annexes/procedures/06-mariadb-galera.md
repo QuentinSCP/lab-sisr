@@ -1,3 +1,44 @@
+---
+sous_titre: "Réplication synchrone, contrôle de santé et démarrage à froid"
+version: "1.2"
+date: "30/10/2026"
+statut: "À valider"
+diffusion: "Formateur, dossier E6"
+machines: "DB1 (612), DB2 (613), DB3 (614)"
+composants:
+  - nom: "MariaDB 10.11"
+    detail: "trois nœuds, VLAN 166"
+    icone: database
+  - nom: "Galera 4"
+    detail: "réplication synchrone"
+    icone: refresh-cw
+  - nom: "galera-check"
+    detail: "contrôle sur le port 9200"
+    icone: activity
+  - nom: "systemd"
+    detail: "socket d'écoute du contrôle"
+    icone: terminal
+  - nom: "rsync"
+    detail: "transfert complet (SST)"
+    icone: folder
+  - nom: "mariadb-dump"
+    detail: "export logique quotidien"
+    icone: archive
+historique:
+  - version: "1.0"
+    date: "08/10/2026"
+    auteur: "Q. Scarpa"
+    modifications: "Création, à partir du DAT v1.4"
+  - version: "1.1"
+    date: "29/10/2026"
+    auteur: "Q. Scarpa"
+    modifications: "Ajout des traces relevées par script"
+  - version: "1.2"
+    date: "30/10/2026"
+    auteur: "Q. Scarpa"
+    modifications: "Rangement dans les annexes, version PDF ; schéma du démarrage à froid en image"
+---
+
 # 06 · MariaDB et cluster Galera
 
 | | |

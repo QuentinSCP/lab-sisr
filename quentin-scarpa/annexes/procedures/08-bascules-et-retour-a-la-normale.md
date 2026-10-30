@@ -1,3 +1,40 @@
+---
+sous_titre: "Pannes, maintenance sans coupure et mesure des délais"
+version: "1.1"
+date: "30/10/2026"
+statut: "À valider"
+diffusion: "Formateur, dossier E6"
+machines: "HAProxy, WEB1, WEB2, DB1 à DB3"
+composants:
+  - nom: "HAProxy"
+    detail: "retrait et réintégration"
+    icone: split
+  - nom: "Galera"
+    detail: "bascule SQL"
+    icone: database
+  - nom: "Socket d'administration"
+    detail: "drain, maint, ready"
+    icone: terminal
+  - nom: "mesure-bascule.sh"
+    detail: "une requête toutes les 0,5 s"
+    icone: clock
+  - nom: "journalctl"
+    detail: "retraits et retours"
+    icone: activity
+  - nom: "Tableau des pannes"
+    detail: "délais mesurés"
+    icone: file-text
+historique:
+  - version: "1.0"
+    date: "29/10/2026"
+    auteur: "Q. Scarpa"
+    modifications: "Création (mission N3, lots 2 et 4)"
+  - version: "1.1"
+    date: "30/10/2026"
+    auteur: "Q. Scarpa"
+    modifications: "Rangement dans les annexes, version PDF"
+---
+
 # 08 · Bascules, pannes et retour à la normale
 
 | | |

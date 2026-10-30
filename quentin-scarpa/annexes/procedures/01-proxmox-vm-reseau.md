@@ -1,3 +1,40 @@
+---
+sous_titre: "Créer les machines, les placer dans leur VLAN et les sauvegarder"
+version: "1.1"
+date: "30/10/2026"
+statut: "À valider"
+diffusion: "Formateur, dossier E6"
+machines: "Cluster Proxmox VE de l'école"
+composants:
+  - nom: "Proxmox VE"
+    detail: "cluster de l'école"
+    icone: server
+  - nom: "Image Debian"
+    detail: "gabarit des VM Linux"
+    icone: layers
+  - nom: "Pont VLAN"
+    detail: "VLAN 164 à 167"
+    icone: network
+  - nom: "vzdump"
+    detail: "sauvegarde des VM"
+    icone: archive
+  - nom: "qmrestore"
+    detail: "restauration testée (T13)"
+    icone: refresh-cw
+  - nom: "Console Proxmox"
+    detail: "accès de secours"
+    icone: terminal
+historique:
+  - version: "1.0"
+    date: "08/10/2026"
+    auteur: "Q. Scarpa"
+    modifications: "Création, à partir du DAT v1.4"
+  - version: "1.1"
+    date: "30/10/2026"
+    auteur: "Q. Scarpa"
+    modifications: "Rangement dans les annexes, version PDF"
+---
+
 # 01 · Proxmox VE : VM, réseau virtuel et sauvegardes
 
 | | |
