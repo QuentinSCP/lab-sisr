@@ -1,0 +1,9 @@
+flowchart TD
+    A["Les trois nœuds sont arrêtés"] --> B["Lire grastate.dat sur chaque nœud"]
+    B --> C{"Un nœud a safe_to_bootstrap à 1 ?"}
+    C -- "Oui" --> D["Amorcer ce nœud avec galera_new_cluster"]
+    C -- "Non" --> E["Comparer les positions avec wsrep-recover"]
+    E --> F["Mettre safe_to_bootstrap à 1 sur le nœud le plus avancé"]
+    F --> D
+    D --> G["Démarrer les deux autres nœuds, un par un"]
+    G --> H["wsrep_cluster_size vaut 3, tous Synced"]

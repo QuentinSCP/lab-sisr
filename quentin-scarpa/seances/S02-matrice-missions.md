@@ -2,7 +2,7 @@
 
 **Étudiant :** Quentin · **Épreuve :** E6 SISR (BTS SIO) · **Date :** 29 octobre 2026 (rendu de S2, rédigé en S3)
 
-*Pour chaque mission envisagée, ce que je pourrais **démontrer** à partir de mon laboratoire ([DAT d'environnement](../docs/dat-environnement.md)).*
+*Pour chaque mission envisagée, ce que je pourrais **démontrer** à partir de mon laboratoire ([DAT d'environnement](../annexes/dat/dat-environnement.md)).*
 
 | Mission | **Concevoir** : ce que je pourrais démontrer | **Installer** : ce que je pourrais démontrer | **Exploiter** : ce que je pourrais démontrer | Ressources dont j'aurai besoin |
 |---|---|---|---|---|
