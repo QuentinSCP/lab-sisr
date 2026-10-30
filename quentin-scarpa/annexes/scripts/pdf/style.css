@@ -1,8 +1,8 @@
 /* Charte des procédures en PDF, reprise de la documentation GLPI de Quentin Scarpa.
    Le fond décoré de chaque page vient de fond.html, posé sous le texte par generer-pdf.py. */
-@font-face { font-family: "Questrial"; src: url("polices/Questrial-Regular.ttf"); }
-@font-face { font-family: "DejaVu Sans Mono"; src: url("polices/DejaVuSansMono.ttf"); }
-@font-face { font-family: "DejaVu Sans Mono"; src: url("polices/DejaVuSansMono-Bold.ttf"); font-weight: bold; }
+@font-face { font-family: "Questrial"; src: url("polices/questrial-regular.ttf"); }
+@font-face { font-family: "DejaVu Sans Mono"; src: url("polices/dejavu-sans-mono.ttf"); }
+@font-face { font-family: "DejaVu Sans Mono"; src: url("polices/dejavu-sans-mono-bold.ttf"); font-weight: bold; }
 
 :root {
   --sarcelle: #2e6b66; --sarcelle-clair: #5a9690;

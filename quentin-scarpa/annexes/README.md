@@ -2,11 +2,11 @@
 
 Toutes les **preuves** citées dans les fiches descriptives et dans le tableau de l'environnement sont déposées ici. Elles décrivent le laboratoire de Quentin Scarpa : un site qui reste en ligne quand un serveur tombe (réalisation 1), puis l'exploitation et la sécurité du laboratoire (réalisation 2, projet Sentinelle).
 
-## Contenu
+## Organisation conseillée
 
 ```text
 annexes/
-├── dat/          DAT du laboratoire, DAT d'environnement, table de correspondance GSB, DAT R1, plan de reconstruction
+├── dat/          DAT du laboratoire, DAT d'environnement, table de correspondance GSB, DAT R1
 ├── schemas/      Schémas d'architecture, en image et en source quand elle existe (.mmd)
 ├── procedures/   Procédures 00 à 08 et leur version PDF (procedures/pdf/)
 ├── scripts/      Scripts et configurations sans secret : collecte des preuves, mesure des bascules, génération des PDF et sa charte (pdf/) ;
@@ -14,6 +14,16 @@ annexes/
 ├── captures/     Traces relevées sur le labo, un sous-dossier par technologie (créé par les scripts)
 └── tests/        Plan de tests R1 ; rapports de tests et d'incident à venir
 ```
+
+## Conventions
+
+- **Un fichier = une preuve** identifiable : son chemin est cité dans la fiche descriptive.
+- **Captures** : `AAAA-MM-JJ-sujet-numero.png` (par exemple `2026-10-29-pfsense-regles-01.png`), avec une **légende** dans le document qui les cite.
+- **Schémas** : au format image **et** au format source quand il existe.
+- **DAT** : un fichier par DAT (`dat-environnement.md`, `dat-r1.md`, `dat-r2.md`), plus la table de correspondance (`correspondance-gsb.md`).
+- **Aucun secret** : ni mot de passe, ni clé privée, ni `wp-config.php` réel. Les procédures utilisent des valeurs entre chevrons (`<MOT_DE_PASSE>`) à remplacer à la main.
+- **« à vérifier »** : valeur reprise d'un échange, pas encore relevée sur la machine ; liste complète au [§18 du DAT](dat/dat-laboratoire.md#18-points-à-vérifier).
+- **Fins de ligne** : le fichier `.gitattributes` du dépôt garde les scripts shell en LF, même dans un clone Windows ; sans cela, ils échouent sous WSL ou Git Bash.
 
 ## Pièces attendues
 
@@ -29,7 +39,7 @@ annexes/
 
 *Légende : ⬜ non démarré · 🟠 en cours · ✅ validé par le formateur.*
 
-Le [DAT complet du laboratoire](dat/dat-laboratoire.md) (cible Sentinelle, choix, journaux, modèle OSI) et le [plan de reconstruction](dat/plan-reconstruction.md) complètent ces pièces.
+Le [DAT complet du laboratoire](dat/dat-laboratoire.md) (cible Sentinelle, choix, journaux, modèle OSI) complète ces pièces.
 
 ## Le laboratoire en bref
 
@@ -96,7 +106,7 @@ Chaque procédure `procedures/NN-*.md` (sauf le modèle 00) devient `procedures/
 
 ## Rejouer le laboratoire
 
-Ordre conseillé pour reconstruire la chaîne web de zéro. Chaque étape dépend de la précédente. La reconstruction complète, phase par phase, est décrite dans le [plan de reconstruction](dat/plan-reconstruction.md).
+Ordre conseillé pour reconstruire la chaîne web de zéro. Chaque étape dépend de la précédente.
 
 1. **01 Proxmox** : créer les VM et les placer dans leur VLAN.
 2. **02 pfSense** : interfaces, règles, NAT. Sans lui, les zones ne se voient pas.
@@ -122,14 +132,3 @@ Les VM sont éteintes entre les séances : chaque reprise est un démarrage à f
 8. Vérifier : `wsrep_cluster_size` vaut 3, la page de statistiques HAProxy est au vert, le site répond sur `http://10.2.0.198:8081`
 
 **Arrêt** : ordre inverse. Arrêter les nœuds Galera un par un et **noter le dernier arrêté** : c'est lui qu'on amorcera au prochain démarrage.
-
-## Conventions
-
-- **Un fichier = une preuve** identifiable : son chemin est cité dans la fiche descriptive.
-- **Captures** : `AAAA-MM-JJ-sujet-numero.png` (par exemple `2026-10-29-pfsense-regles-01.png`), avec une **légende** dans le document qui les cite.
-- **Schémas** : au format image **et** au format source quand il existe.
-- **DAT** : un fichier par DAT (`dat-environnement.md`, `dat-r1.md`, `dat-r2.md`), plus la table de correspondance (`correspondance-gsb.md`).
-- **Aucun secret** : ni mot de passe, ni clé privée, ni `wp-config.php` réel. Les procédures utilisent des valeurs entre chevrons (`<MOT_DE_PASSE>`) à remplacer à la main.
-- **« à vérifier »** : valeur reprise d'un échange, pas encore relevée sur la machine ; liste complète au [§18 du DAT](dat/dat-laboratoire.md#18-points-à-vérifier).
-- **Commits** : au moins un par séance, au format `type(portée): message`, par exemple `docs(galera): ajoute le démarrage à froid`.
-- **Fins de ligne** : le fichier `.gitattributes` du dépôt garde les scripts shell en LF, même dans un clone Windows ; sans cela, ils échouent sous WSL ou Git Bash.

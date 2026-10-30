@@ -588,7 +588,7 @@ Détail des journaux, de leurs usages et de la centralisation prévue : §20.
 
 **Gestion des configurations**
 
-- Dépôt Git du parcours, avec les dossiers `annexes/`, `annexes/scripts/`, `annexes/scripts/`, `annexes/scripts/ansible/` et `annexes/captures/`, et au moins un commit par séance.
+- Dépôt Git du parcours, avec les dossiers `annexes/`, `annexes/scripts/`, `annexes/scripts/ansible/` et `annexes/captures/`, et au moins un commit par séance.
 - À versionner : `haproxy.cfg`, la configuration Galera sans mot de passe, le script et les unités systemd du contrôle de santé, les scripts PowerShell de l'annuaire.
 - Ansible, depuis OPS : playbooks pour les agents Wazuh, les exporters, HAProxy et les règles ; connexion SSH par clé, secrets dans Ansible Vault. Objectif : reconstruire une machine en moins d'une heure.
 - La configuration de pfSense s'exporte depuis Diagnostics > Backup & Restore. Le fichier contient des empreintes de mots de passe : il reste dans un dépôt privé.
@@ -657,7 +657,7 @@ Les tests se jouent depuis le labo, sans poste d'attaque dédié. Les tests T15 
 
 Quatre phases mènent le labo à la conformité complète avant l'assemblage du dossier en S14 (26 mars 2027).
 
-> Une reconstruction complète, avec un calendrier révisé, est proposée dans le [plan de reconstruction](plan-reconstruction.md). Si elle est validée en S4, elle remplace cette feuille de route.
+> Une reconstruction complète, avec un calendrier révisé, est proposée dans mon plan de reconstruction, tenu hors de ce dossier avec le travail en cours. Si elle est validée en S4, elle remplace cette feuille de route.
 
 ![feuille de route, 4 phases, de novembre 2026 à mars 2027](../schemas/03-feuille-de-route.svg)
 

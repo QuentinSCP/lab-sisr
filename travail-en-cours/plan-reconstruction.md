@@ -2,7 +2,7 @@
 
 Version 1.0 · 29 octobre 2026 · Quentin Scarpa · À valider avec le formateur en S4
 
-Ce plan reconstruit tout le laboratoire, proprement et de façon rejouable, **sans changer l'infrastructure, l'adressage ni la segmentation** : cluster Proxmox de l'école, pfSense, quatre VLAN (164 à 167), mêmes adresses, même domaine `qscarpa.lan`. Il vise la conformité complète à l'annexe II.E du référentiel et porte les deux réalisations : R1 (mission N3, haute disponibilité) et R2 (mission N4, supervision). S'il est validé, il remplace la feuille de route du [DAT §17](dat-laboratoire.md#17-feuille-de-route).
+Ce plan reconstruit tout le laboratoire, proprement et de façon rejouable, **sans changer l'infrastructure, l'adressage ni la segmentation** : cluster Proxmox de l'école, pfSense, quatre VLAN (164 à 167), mêmes adresses, même domaine `qscarpa.lan`. Il vise la conformité complète à l'annexe II.E du référentiel et porte les deux réalisations : R1 (mission N3, haute disponibilité) et R2 (mission N4, supervision). S'il est validé, il remplace la feuille de route du [DAT §17](../quentin-scarpa/annexes/dat/dat-laboratoire.md#17-feuille-de-route).
 
 > **À valider avant de commencer.** En S3, le formateur demande d'auditer et de compléter le laboratoire, pas de le reconstruire, et les conventions GSB présentent chaque mission comme une évolution de l'existant. La reconstruction se défend : versions de Debian non homogènes, valeurs jamais relevées sur les machines, mot de passe de test à remplacer, et surtout la rejouabilité exigée en phase 2 de l'épreuve. Mais elle doit être acceptée en S4, avant toute destruction.
 
@@ -208,7 +208,7 @@ S6 · ≈ 6 h · Lignes 11, 14, 19, 20, 21, 22 · Procédures 05 et 07 à mettre
 4. **Vérifier avec l'école** que le pare-feu de Proxmox ne filtre pas les adresses IP des VM (option « IP filter ») : il bloquerait l'adresse virtuelle.
 5. **pfSense** : NAT 8081 et 8444 vers l'adresse virtuelle.
 
-**Critère de sortie** : tests R1-T01 à R1-T05 et R1-T13 du [plan de tests R1](../tests/plan-de-tests-r1.md) réussis.
+**Critère de sortie** : tests R1-T01 à R1-T05 et R1-T13 du [plan de tests R1](../quentin-scarpa/annexes/tests/plan-de-tests-r1.md) réussis.
 
 ### Phase 6 · Sauvegarde et restauration
 
@@ -219,13 +219,13 @@ S6, ou pendant le stage · ≈ 3 h · Lignes 6, 20 · Procédure 11 à écrire �
 3. Restaurations chronométrées : une VM depuis vzdump (T13), la base `recette` depuis l'export (R1-T15), un fichier de configuration depuis Borg.
 4. Option recommandée par le référentiel (cloud) : copie chiffrée des dépôts Borg chez un hébergeur situé dans l'Union européenne (RGPD).
 
-**Critère de sortie** : trois restaurations réussies, délais notés et comparés aux objectifs du [DAT R1 §3](dat-r1.md#3-objectifs-de-continuité).
+**Critère de sortie** : trois restaurations réussies, délais notés et comparés aux objectifs du [DAT R1 §3](../quentin-scarpa/annexes/dat/dat-r1.md#3-objectifs-de-continuité).
 
 ### Phase 7 · Recette de R1 et preuves
 
 S6, puis S7 (8 janvier) · ≈ 4 h · Lignes 14, 15
 
-1. Dérouler le [plan de tests R1](../tests/plan-de-tests-r1.md) avec `annexes/scripts/mesure-bascule.sh` ; remplir le tableau des pannes.
+1. Dérouler le [plan de tests R1](../quentin-scarpa/annexes/tests/plan-de-tests-r1.md) avec `annexes/scripts/mesure-bascule.sh` ; remplir le tableau des pannes.
 2. Capture de trames : capture pfSense (**Diagnostics > Packet Capture**) pendant une connexion HTTPS et une bascule SQL, lue dans Wireshark sur le poste d'administration et commentée couche par couche.
 3. Collecte des preuves, captures d'écran, rapport de tests.
 4. S7 : exercice d'incident conduit par le formateur, puis rapport d'incident.
@@ -262,7 +262,7 @@ S10 (19 février) · ≈ 6 h · Lignes 3, 10, 12, 18, 26 · Procédure 16 à éc
 1. **SIEM** (`10.100.165.12`) : Wazuh tout-en-un, interface en HTTPS ; agents par Ansible et par script sur Windows.
 2. **pfSense** : Suricata en détection sur le WAN et la zone WEB, alertes envoyées à Wazuh par syslog ; ntopng pour l'analyse de trafic.
 3. **Réponse active** : blocage temporaire après une force brute SSH (règle 5763), avec OPS et le poste d'administration en liste blanche ; contrôle d'intégrité des fichiers de configuration de l'application et de `/etc`.
-4. Scénarios S1 à S3 du [DAT §16](dat-laboratoire.md#16-sentinelle--exploitation-et-sécurité), joués depuis le poste client.
+4. Scénarios S1 à S3 du [DAT §16](../quentin-scarpa/annexes/dat/dat-laboratoire.md#16-sentinelle--exploitation-et-sécurité), joués depuis le poste client.
 
 **Critère de sortie** : une force brute est bloquée et visible dans Wazuh ; un balayage de ports déclenche une alerte Suricata, expliquée avec une capture.
 
@@ -322,7 +322,7 @@ S12 à S14 (18 au 26 mars) · ≈ 4 h
 
 ## 8. Le jour de l'épreuve
 
-- Démarrer le labo au moins 30 minutes avant, dans l'ordre du [README des annexes](../README.md#démarrer-et-arrêter-le-laboratoire) ; amorcer Galera sur le dernier nœud arrêté.
+- Démarrer le labo au moins 30 minutes avant, dans l'ordre du [README des annexes](../quentin-scarpa/annexes/README.md#démarrer-et-arrêter-le-laboratoire) ; amorcer Galera sur le dernier nœud arrêté.
 - Lancer le script de vérification (phase 12) et corriger avant d'entrer.
 - Avoir hors du dépôt : identifiants, phrase secrète de la clé SSH, mot de passe du Vault ; accès à la console Proxmox.
 - Garder des captures et une courte vidéo de chaque réalisation en secours, si le réseau de l'école tombe.
